@@ -1,0 +1,12 @@
+{
+    "name": "ceryl-design-seed",
+    "version": "1.0.0",
+    "description": "Design system starter",
+    "main": "index.js",
+    "repository": "https://github.com/AkimaLunar/ceryl-design-seed",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Ria N. Carmin <akimalunar@gmail.com>",
+    "license": "MIT"
+}
