@@ -1,8 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import Button from '../src/elements/Button'
-import '../src/styleguide/Global'
+import Button from 'Elements/Button'
 
 storiesOf('Elements/Button', module)
     .add('with text', () => (

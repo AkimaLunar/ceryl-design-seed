@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 import PropTypes from 'prop-types'
-import Colors from '../styleguide/Colors'
+import Colors from 'Styles/Colors'
 
 const Button = ({ children, onClick, className }) => (
     <button className={className} onClick={onClick}>
