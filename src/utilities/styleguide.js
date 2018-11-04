@@ -1,20 +1,21 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
-import Colors from 'Styles/Colors'
+import C from 'Styles/Constants'
 import Typography from 'Styles/Typography'
-import { calcGrey } from 'Styles/Colors'
+import { calcGrey } from 'Utilities/colors'
 import { calcSpace } from 'Styles/Layout'
 
 class Styleguide extends React.Component {
     static Title = styled.h1(Typography.title, {
         borderBottom: `0.1rem solid ${calcGrey(92)}`,
         paddingBottom: `${calcSpace(1)}`,
-        margin: `${calcSpace(4)} 0`
+        margin: `${calcSpace(4)} 0`,
+        fontWeight: C.FONT_WEIGHT_BOLD
     })
 
     static Description = styled.p({
-        color: Colors.grey.medium
+        color: C.GREY_COLORS.medium
     })
 
     static Main = styled.div({
@@ -38,7 +39,7 @@ class Styleguide extends React.Component {
     static DefinitionTerm = styled.dt({})
 
     static DefinitionDescription = styled.dd(Typography.caption, {
-        color: Colors.grey.medium
+        color: C.GREY_COLORS.medium
     })
 
     render() {

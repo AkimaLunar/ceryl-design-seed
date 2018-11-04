@@ -1,26 +1,77 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import styled from 'react-emotion'
-import Styleguide from 'Utilities/styleguide'
-import Typography, { calcFontSize, RHYTM, FONT_RATIO } from 'Styles/Typography'
+import styled from '@emotion/styled'
+import Styleguide from 'Utilities/Styleguide'
+import C from 'Styles/Constants'
+import Typography, { getFontScale } from 'Styles/Typography'
 import { calcSpace } from 'Styles/Layout'
-import { REM } from 'Styles/Scale'
 
 storiesOf('Styles/Typography', module)
+    .add('Fonts', () => {
+        const Font = styled(({ className, fontFamily }) => (
+            <p className={className}>{fontFamily}</p>
+        ))(({ fontFamily, fontWeight }) => ({
+            fontFamily,
+            fontWeight,
+            margin: `0 0 ${calcSpace(2)} 0`
+        }))
+
+        return (
+            <Styleguide>
+                <Styleguide.Title>fonts</Styleguide.Title>
+                <Styleguide.DefinitionList>
+                    <Styleguide.DefinitionTerm>
+                        <Font
+                            fontFamily={C.HEADING_FONT}
+                            fontWeight={C.FONT_WEIGHT_REGULAR}
+                        />
+                        <Font
+                            fontFamily={C.HEADING_FONT}
+                            fontWeight={C.FONT_WEIGHT_BOLD}
+                        />
+                    </Styleguide.DefinitionTerm>
+                    <Styleguide.DefinitionDescription>
+                        Heading Font:
+                        {C.HEADING_FONT}
+                        <br />
+                        Font Weights: {C.FONT_WEIGHT_REGULAR},{' '}
+                        {C.FONT_WEIGHT_BOLD}
+                    </Styleguide.DefinitionDescription>
+                    <Styleguide.DefinitionTerm>
+                        <Font
+                            fontFamily={C.TEXT_FONT}
+                            fontWeight={C.FONT_WEIGHT_REGULAR}
+                        />
+                        <Font
+                            fontFamily={C.TEXT_FONT}
+                            fontWeight={C.FONT_WEIGHT_BOLD}
+                        />
+                    </Styleguide.DefinitionTerm>
+                    <Styleguide.DefinitionDescription>
+                        Text Font:
+                        {C.TEXT_FONT}
+                        <br />
+                        Font Weights: {C.FONT_WEIGHT_REGULAR},{' '}
+                        {C.FONT_WEIGHT_BOLD}
+                    </Styleguide.DefinitionDescription>
+                </Styleguide.DefinitionList>
+            </Styleguide>
+        )
+    })
     .add('Sizes', () => {
-        const array = Array(6)
+        const array = Array(7)
             .fill()
             .map((_, i) => i + 1)
 
         const Factor = styled(({ className, factor }) => (
             <p className={className}>Size factor of {factor}.</p>
-        ))(props => calcFontSize(props.factor), {
+        ))(props => getFontScale(props.factor), {
             margin: `0 0 ${calcSpace(2)} 0`
         })
 
         return (
             <Styleguide>
-                <Styleguide.Title>Sizes</Styleguide.Title>
+                <Styleguide.Title>sizes</Styleguide.Title>
                 <Styleguide.DefinitionList>
                     {array.map(factor => (
                         <React.Fragment key={factor}>
@@ -28,11 +79,11 @@ storiesOf('Styles/Typography', module)
                                 <Factor factor={factor} />
                             </Styleguide.DefinitionTerm>
                             <Styleguide.DefinitionDescription>
-                                Font Size: `
-                                {((factor + 4) * RHYTM * FONT_RATIO) / REM}
-                                `rem <br />
-                                Line Height: `{((factor + 4) * RHYTM) / REM}
-                                rem`
+                                {JSON.stringify(
+                                    getFontScale(factor),
+                                    null,
+                                    '\n'
+                                )}
                             </Styleguide.DefinitionDescription>
                         </React.Fragment>
                     ))}
@@ -47,7 +98,7 @@ storiesOf('Styles/Typography', module)
 
         return (
             <Styleguide>
-                <Styleguide.Title>Headings Typography</Styleguide.Title>
+                <Styleguide.Title>headings typography</Styleguide.Title>
                 <Title>Title</Title>
                 <Heading>Title</Heading>
                 <Subheading>Title</Subheading>
@@ -60,7 +111,7 @@ storiesOf('Styles/Typography', module)
 
         return (
             <Styleguide>
-                <Styleguide.Title>Body Typography</Styleguide.Title>
+                <Styleguide.Title>body typography</Styleguide.Title>
                 <Paragraph>
                     Lorem ipsum dolor sit amet, ea nominati salutatus ius, vix
                     cu ubique corrumpit concludaturque. Ne tollit mentitum

@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { storiesOf } from '@storybook/react'
-import styled from 'react-emotion'
-import Styleguide from 'Utilities/styleguide'
+import styled from '@emotion/styled'
+import Styleguide from 'Utilities/Styleguide'
 
-import Colors from 'Styles/Colors'
+import C from 'Styles/Constants'
 import 'Global'
 
 const Swatch = styled.div(
@@ -37,7 +37,7 @@ storiesOf('Styles/Colors', module)
         <Styleguide>
             <Styleguide.Title>Theme Colors</Styleguide.Title>
             <Styleguide.Grid>
-                <Swatches scheme={Colors.theme} />
+                <Swatches scheme={C.THEME_COLORS} />
             </Styleguide.Grid>
         </Styleguide>
     ))
@@ -45,7 +45,7 @@ storiesOf('Styles/Colors', module)
         <Styleguide>
             <Styleguide.Title>UI Colors</Styleguide.Title>
             <Styleguide.Grid>
-                <Swatches scheme={Colors.ui} />
+                <Swatches scheme={C.UI_COLORS} />
             </Styleguide.Grid>
         </Styleguide>
     ))
@@ -54,7 +54,7 @@ storiesOf('Styles/Colors', module)
             <Styleguide>
                 <Styleguide.Title>Grey Colors</Styleguide.Title>
                 <Styleguide.Grid>
-                    <Swatches scheme={Colors.grey} />
+                    <Swatches scheme={C.GREY_COLORS} />
                 </Styleguide.Grid>
             </Styleguide>
         )

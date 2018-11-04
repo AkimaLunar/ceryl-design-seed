@@ -1,15 +1,37 @@
+import ms from 'modular-scale'
+import C from 'Styles/Constants'
+
 // =============================================================================
 // Scale
 // =============================================================================
 
-// Constants // ================================================================
-export const REM = 10
-export const BASE_SCALE = `${(100 / 16) * REM}%`
-export const STEP = 8
+export const modularScale = ms({
+    ratio: C.RATIO,
+    base: C.STEP
+})
 
-// Functions // ================================================================
+export const getScale = n => {
+    const factor = n + 4
+    const scale = modularScale(factor, true)
+    const full = Math.ceil(scale / C.STEP) * C.STEP
 
-// Style Blocks // =============================================================
+    if (full - scale < C.STEP) {
+        return full + C.STEP
+    }
 
-// =============================================================================
+    return full
+}
+
+export const calcScale = n => {
+    const factor = n + 4
+    const scale = modularScale(factor, true)
+    const full = Math.ceil(scale / C.STEP) * C.STEP
+
+    if (full - scale < C.STEP) {
+        return `${(full + C.STEP) / C.REM}rem`
+    }
+
+    return `${full / C.REM}rem`
+}
+
 export default {}

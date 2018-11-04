@@ -1,47 +1,36 @@
+import { css } from '@emotion/core'
+import C from 'Styles/Constants'
 // =============================================================================
 // Colors
 // =============================================================================
 
-// Constants // ================================================================
-export const theme = {
-    primary: '#5f27cd',
-    secondary: '#341f97'
-}
+const interactive = css({
+    color: C.UI_COLORS.success,
+    transition: `color ${C.BASE_DURATION} ${C.BASE_TIMING}`,
 
-export const ui = {
-    alert: '#f19066',
-    default: '#2e86de',
-    error: '#e66767',
-    info: '#54a0ff',
-    success: '#1dd1a1'
-}
+    '&:hover': {
+        color: C.UI_COLORS.success
+    },
+    '&:focus': {
+        color: C.UI_COLORS.success
+    }
+})
 
-// Functions // ================================================================
-export const calcGrey = value => `hsl(230, 20%, ${value}%)`
-
-export const grey = {
-    black: '#000000',
-    dark: calcGrey(30),
-    medium: calcGrey(60),
-    light: calcGrey(98),
-    white: '#FFFFFF'
-}
-
-export const gradient = {
-    accent: `linear-gradient(135deg, ${theme.primary} 0%, ${
-        theme.secondary
-    } 100%)`
-}
-
-export const background = grey.light
-// Style Blocks // =============================================================
+const interactiveBackground = css({
+    color: C.GREY_COLORS.white,
+    backgroundColor: C.GREY_COLORS.white,
+    transition: `all ${C.BASE_DURATION} ${C.BASE_TIMING}`,
+    '&:hover': {
+        color: C.GREY_COLORS.white
+    },
+    '&:focus': {
+        color: C.GREY_COLORS.white
+    }
+})
 
 // =============================================================================
 
 export default {
-    theme,
-    ui,
-    grey,
-    gradient,
-    background
+    interactive,
+    interactiveBackground
 }

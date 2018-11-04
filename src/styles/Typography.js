@@ -1,73 +1,63 @@
-import { css } from 'emotion'
-import { STEP, REM } from 'Styles/Scale'
+import C from 'Styles/Constants'
+import ms from 'modular-scale'
+import { getScale } from 'Styles/Scale'
 
 // =============================================================================
-// Layout
+// Typography
 // =============================================================================
 
-// Constants // ================================================================
-export const TEXT_FONT = `'Source Sans Pro', sans-serif`
-export const HEADING_FONT = TEXT_FONT
-export const FONT_WEIGHT_REGULAR = 400
-export const FONT_WEIGHT_BOLD = 700
+export const typographicScale = ms({
+    ratio: C.RATIO,
+    base: C.STEP
+})
 
-export const RHYTM = STEP / 2
-export const BASELINE = STEP * 2
-export const FONT_RATIO = 0.75
-
-// Functions // ================================================================
-export const calcFontSize = (factor = 1) => {
-    const initSize = 4
-    const size = factor > 0 ? factor + initSize : initSize
-    return css({
-        fontSize: `${(size * RHYTM * FONT_RATIO) / REM}rem`,
-        lineHeight: `${(size * RHYTM) / REM}rem`
-    })
+export const calcFontSize = n => {
+    const scale = getScale(n)
+    return `${(scale * C.FONT_RATIO) / C.REM}rem`
 }
 
-// Style Blocks // =============================================================
-export const paragraph = css(
-    {
-        fontFamily: TEXT_FONT
-    },
-    calcFontSize(2)
-)
+export const calcLineHeight = n => {
+    const scale = getScale(n)
+    return `${scale / C.REM}rem`
+}
 
-export const title = css(
-    {
-        fontFamily: HEADING_FONT,
-        fontWeight: FONT_WEIGHT_REGULAR
-    },
-    calcFontSize(8)
-)
+export const getFontScale = n => ({
+    fontSize: calcFontSize(n),
+    lineHeight: calcLineHeight(n)
+})
 
-export const heading = css(
-    {
-        fontFamily: HEADING_FONT,
-        textTransform: 'uppercase',
-        letterSpacing: '0.1rem',
-        fontWeight: FONT_WEIGHT_BOLD
-    },
-    calcFontSize(4)
-)
+export const paragraph = {
+    fontFamily: C.TEXT_FONT,
+    ...getFontScale(2)
+}
 
-export const subheading = css(
-    {
-        fontFamily: HEADING_FONT,
-        textTransform: 'uppercase',
-        letterSpacing: '0.1rem',
-        fontWeight: FONT_WEIGHT_BOLD
-    },
-    calcFontSize(3)
-)
+export const title = {
+    fontFamily: C.HEADING_FONT,
+    fontWeight: C.FONT_WEIGHT_REGULAR,
+    ...getFontScale(8)
+}
 
-export const caption = css(
-    {
-        fontFamily: TEXT_FONT,
-        letterSpacing: '0.025rem'
-    },
-    calcFontSize(1)
-)
+export const heading = {
+    fontFamily: C.HEADING_FONT,
+    textTransform: 'uppercase',
+    letterSpacing: '0.1rem',
+    fontWeight: C.FONT_WEIGHT_BOLD,
+    ...getFontScale(4)
+}
+
+export const subheading = {
+    fontFamily: C.HEADING_FONT,
+    textTransform: 'uppercase',
+    letterSpacing: '0.1rem',
+    fontWeight: C.FONT_WEIGHT_BOLD,
+    ...getFontScale(3)
+}
+
+export const caption = {
+    fontFamily: C.TEXT_FONT,
+    letterSpacing: '0.025rem',
+    ...getFontScale(1)
+}
 
 // =============================================================================
 export default {
