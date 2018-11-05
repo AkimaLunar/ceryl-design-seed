@@ -65,6 +65,8 @@ export const BACKGROUND_COLOR = GREY_COLORS.light
 
 // Line // =====================================================================
 export const BORDER_RADIUS = '0.4rem'
+export const LINE_WIDTH = '0.1rem'
+export const DEFAULT_BORDER = `${LINE_WIDTH} solid ${GREY_COLORS.grey80}`
 
 // Motion // ===================================================================
 export const BASE_DURATION = '0.2s'
@@ -100,6 +102,8 @@ export default {
 
     // Line // =====================================================================
     BORDER_RADIUS,
+    LINE_WIDTH,
+    DEFAULT_BORDER,
 
     // Motion // ===================================================================
     BASE_DURATION,

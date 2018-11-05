@@ -17,7 +17,7 @@ export const base = {
     fontSize: calcFontSize(1),
     fontSmoothing: 'antialiased',
     fontWeight: C.FONT_WEIGHT_BOLD,
-    height: calcSpace(),
+    height: calcSpace(5),
     letterSpacing: '0.1rem',
     lineHeight: calcLineHeight(1),
     paddingBottom: 0,

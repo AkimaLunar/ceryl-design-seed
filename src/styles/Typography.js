@@ -28,13 +28,17 @@ export const getFontScale = n => ({
 
 export const paragraph = {
     fontFamily: C.TEXT_FONT,
-    ...getFontScale(2)
+    ...getFontScale(1)
+}
+
+export const emphasis = {
+    fontWeight: C.FONT_WEIGHT_BOLD
 }
 
 export const title = {
     fontFamily: C.HEADING_FONT,
     fontWeight: C.FONT_WEIGHT_REGULAR,
-    ...getFontScale(8)
+    ...getFontScale(5)
 }
 
 export const heading = {
@@ -42,7 +46,7 @@ export const heading = {
     textTransform: 'uppercase',
     letterSpacing: '0.1rem',
     fontWeight: C.FONT_WEIGHT_BOLD,
-    ...getFontScale(4)
+    ...getFontScale(3)
 }
 
 export const subheading = {
@@ -50,7 +54,7 @@ export const subheading = {
     textTransform: 'uppercase',
     letterSpacing: '0.1rem',
     fontWeight: C.FONT_WEIGHT_BOLD,
-    ...getFontScale(3)
+    ...getFontScale(2)
 }
 
 export const caption = {
@@ -62,6 +66,7 @@ export const caption = {
 // =============================================================================
 export default {
     caption,
+    emphasis,
     heading,
     paragraph,
     subheading,

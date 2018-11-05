@@ -3,13 +3,14 @@ import styled from '@emotion/styled'
 import PropTypes from 'prop-types'
 import C from 'Styles/Constants'
 import Typography from 'Styles/Typography'
+import { withSpacing } from 'Utilities/spacing'
 import { calcGrey } from 'Utilities/colors'
 import { calcSpace } from 'Styles/Layout'
 
 class Styleguide extends React.Component {
     static Title = styled.h1(Typography.title, {
         borderBottom: `0.1rem solid ${calcGrey(92)}`,
-        paddingBottom: `${calcSpace(1)}`,
+        paddingBottom: calcSpace(1),
         margin: `${calcSpace(4)} 0`,
         fontWeight: C.FONT_WEIGHT_BOLD
     })
@@ -41,6 +42,11 @@ class Styleguide extends React.Component {
     static DefinitionDescription = styled.dd(Typography.caption, {
         color: C.GREY_COLORS.medium
     })
+    static Caption = withSpacing(
+        styled.p(Typography.caption, {
+            color: C.GREY_COLORS.medium
+        })
+    )
 
     render() {
         return <Styleguide.Main>{this.props.children}</Styleguide.Main>
