@@ -30,6 +30,7 @@ export const base = {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
+    boxShadow: C.SHADOW_2,
 
     '&:disabled': {
         cursor: 'not-allowed',

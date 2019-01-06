@@ -40,7 +40,7 @@ storiesOf('Elements/Button', module)
         </Button>
     ))
     .add('large', () => (
-        <Button outline large>
+        <Button outline large alert>
             Large Button
         </Button>
     ))

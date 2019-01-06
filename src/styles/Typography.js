@@ -1,15 +1,9 @@
 import C from 'Styles/Constants'
-import ms from 'modular-scale'
 import { getScale } from 'Styles/Scale'
 
 // =============================================================================
 // Typography
 // =============================================================================
-
-export const typographicScale = ms({
-    ratio: C.RATIO,
-    base: C.STEP
-})
 
 export const calcFontSize = n => {
     const scale = getScale(n)
@@ -57,6 +51,13 @@ export const subheading = {
     ...getFontScale(2)
 }
 
+export const label = {
+    fontFamily: C.TEXT_FONT,
+    fontWeight: C.FONT_WEIGHT_BOLD,
+    letterSpacing: '0.015rem',
+    ...getFontScale(1)
+}
+
 export const caption = {
     fontFamily: C.TEXT_FONT,
     letterSpacing: '0.025rem',
@@ -68,6 +69,7 @@ export default {
     caption,
     emphasis,
     heading,
+    label,
     paragraph,
     subheading,
     title
