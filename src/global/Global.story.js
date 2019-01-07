@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Styleguide from 'Utilities/Styleguide'
+import Styleguide from 'Utilities/styleguide'
 
 storiesOf('Global/Typography', module)
     .add('h1-h6', () => (
@@ -307,36 +307,46 @@ storiesOf('Global/Form', module)
             <Styleguide.Caption mt2 mb1>
                 input
             </Styleguide.Caption>
-            <form>
-                <label>Type: color</label>
-                <input type="color" />
-                <label>Type: date</label>
-                <input type="date" />
-                <label>Type: datetime</label>
-                <input type="datetime" />
-                <label>Type: datetime-local</label>
-                <input type="datetime-local" />
-                <label>Type: email</label>
-                <input type="email" />
-                <label>Type: month</label>
-                <input type="month" />
-                <label>Type: number</label>
-                <input type="number" />
-                <label>Type: password</label>
-                <input type="password" />
-                <label>Type: search</label>
-                <input type="search" />
-                <label>Type: tel</label>
-                <input type="tel" />
-                <label>Type: text</label>
-                <input type="text" />
-                <label>Type: time</label>
-                <input type="time" />
-                <label>Type: url</label>
-                <input type="url" />
-                <label>Type: week</label>
-                <input type="week" />
-            </form>
+            <React.Fragment>
+                <form>
+                    <label>Type: color</label>
+                    <input type="color" />
+                    <label>Type: date</label>
+                    <input type="date" />
+                    <label>Type: datetime</label>
+                    <input type="datetime" />
+                    <label>Type: datetime-local</label>
+                    <input type="datetime-local" />
+                    <label>Type: email</label>
+                    <input type="email" />
+                    <label>Type: month</label>
+                    <input type="month" />
+                    <label>Type: number</label>
+                    <input type="number" />
+                    <label>Type: password</label>
+                    <input type="password" />
+                    <label>Type: search</label>
+                    <input type="search" />
+                    <label>Type: tel</label>
+                    <input type="tel" />
+                    <label>Type: text</label>
+                    <input type="text" />
+                    <label>Type: time</label>
+                    <input type="time" />
+                    <label>Type: url</label>
+                    <input type="url" />
+                    <label>Type: week</label>
+                    <input type="week" />
+                </form>
+                <form>
+                    <input type="radio" id="radio" name="input" />
+                    <label htmlFor="radio">Type: radio</label>
+                </form>
+                <form>
+                    <input type="checkbox" id="checkbox" name="input" />
+                    <label htmlFor="checkbox">Type: checkbox</label>
+                </form>
+            </React.Fragment>
         </Styleguide>
     ))
     .add('textarea', () => (
@@ -364,6 +374,29 @@ storiesOf('Global/Form', module)
                     <option value="spider">Spider</option>
                     <option value="goldfish">Goldfish</option>
                 </select>
+            </form>
+        </Styleguide>
+    ))
+    .add('fieldset, legend', () => (
+        <Styleguide>
+            <Styleguide.Caption mt2 mb1>
+                fieldset, legend
+            </Styleguide.Caption>
+            <form>
+                <fieldset>
+                    <legend>Legend</legend>
+
+                    <input type="radio" id="picard" name="captain" />
+                    <label htmlFor="picard">Option 1</label>
+                    <br />
+
+                    <input type="radio" id="sisko" name="captain" />
+                    <label htmlFor="sisko">Option 2</label>
+                    <br />
+
+                    <input type="radio" id="janeway" name="captain" />
+                    <label htmlFor="janeway">Option 3</label>
+                </fieldset>
             </form>
         </Styleguide>
     ))

@@ -32,6 +32,8 @@ export const globalStyles = {
         padding: 0,
         ...Typography.paragraph
     },
+
+    // TYPOGRAPHY ==============================================================
     p: {
         ...Typography.paragraph,
         marginBottom: calcSpace(2),
@@ -80,14 +82,12 @@ export const globalStyles = {
         borderTop: C.DEFAULT_BORDER,
         marginBottom: C.LINE_WIDTH
     },
-
     ['ul, ol']: {
         marginBlockStart: calcSpace(2),
         marginBlockEnd: calcSpace(2),
         paddingInlineStart: 0,
         listStylePosition: 'inside'
     },
-
     ul: {
         listStyle: 'square',
         listStylePosition: 'inside'
@@ -96,6 +96,8 @@ export const globalStyles = {
         fontStyle: 'normal',
         ...Typography.emphasis
     },
+
+    // MEDIA ===================================================================
     ['img, video']: {
         width: '100%'
     },
@@ -113,6 +115,8 @@ export const globalStyles = {
         marginLeft: 0,
         marginRight: 0
     },
+
+    // INTERACTIVE =============================================================
     a: {
         ...LinkStyles.base,
         ...LinkStyles.themes.primary.base
@@ -120,6 +124,8 @@ export const globalStyles = {
     button: {
         ...ButtonStyles.base
     },
+
+    // TABLE ===================================================================
     table: {
         width: '100%',
         tableLayout: 'fixed',
@@ -140,6 +146,8 @@ export const globalStyles = {
         border: C.DEFAULT_BORDER,
         padding: `0 ${calcSpace(2)}`
     },
+
+    // FORM ====================================================================
     'input, textarea, select': {
         display: 'block',
         margin: 0,
@@ -153,6 +161,7 @@ export const globalStyles = {
         fontFamily: C.TEXT_FONT,
         ...getFontScale(1),
         color: C.TEXT_COLOR,
+        caretColor: 'currentColor',
         transition: C.DEFAULT_TRANSITION,
         '&:hover': {
             borderColor: C.UI_COLORS.action
@@ -177,6 +186,14 @@ export const globalStyles = {
         width: calcSpace(5),
         backgroundColor: 'transparent'
     },
+    'input[type="checkbox"], input[type="radio"]': {
+        display: 'inline',
+        width: 'unset',
+        marginRight: calcSpace(2),
+        '+ label': {
+            display: 'inline-block'
+        }
+    },
     textarea: {
         resize: 'vertical',
         minHeight: calcSpace(7),
@@ -189,6 +206,22 @@ export const globalStyles = {
     },
     option: {
         padding: `0 ${calcSpace(2)}`
+    },
+    fieldset: {
+        margin: 0,
+        marginInlineStart: 0,
+        marginInlineEnd: 0,
+        padding: `${calcSpace(1)} ${calcSpace(2)}`,
+        paddingBlockStart: calcSpace(2),
+        paddingBlockEnd: calcSpace(1),
+        paddingInlineStart: calcSpace(2),
+        paddingInlineEnd: calcSpace(2),
+        border: C.DEFAULT_BORDER
+    },
+    legend: {
+        padding: `0 ${calcSpace(1)}`,
+        fontStyle: 'normal',
+        ...Typography.emphasis
     }
 }
 

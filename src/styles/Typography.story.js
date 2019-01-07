@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import styled from '@emotion/styled'
-import Styleguide from 'Utilities/Styleguide'
+import Styleguide from 'Utilities/styleguide'
 import C from 'Styles/Constants'
 import Typography, { getFontScale } from 'Styles/Typography'
 import { calcSpace } from 'Styles/Layout'
