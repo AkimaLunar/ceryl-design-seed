@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { calcSpace } from 'Styles/Layout'
+import { calcSpace } from 'Symbols/scale'
 
 export const withSpacing = Component => {
     const WithSpacing = props => {

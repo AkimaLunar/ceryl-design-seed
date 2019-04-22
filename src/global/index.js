@@ -1,41 +1,40 @@
 import React from 'react'
-import C from 'Styles/Constants'
-import Typography, { getFontScale } from 'Styles/Typography'
-import { calcSpace } from 'Styles/Layout'
-import { Global } from '@emotion/core'
+import S from 'Symbols'
+import { Global, css } from '@emotion/core'
+import { paragraph, caption, emphasis, label } from 'Blocks/text'
+import { link, button } from 'Blocks/interactive'
+/**
+ * @todo: Create style blocks for forms.
+ */
 
-import LinkStyles from 'Elements/Link.styles'
-import ButtonStyles from 'Elements/Button.styles'
-import { calcFontSize, calcLineHeight } from '../styles/Typography'
+const { getFontScale, calcFontSize, calcLineHeight, calcSpace } = S
 
-export const globalStyles = {
+export const GLOBAL_STYLES = css({
     ['*']: {
         boxSizing: 'border-box'
     },
     html: {
         lineHeight: 1.15,
-        ['-webkit-text-size-adjust']: '100%',
-        fontSize: C.BASE_SCALE,
-        fontFamily: C.TEXT_FONT,
-        color: C.TEXT_COLOR,
+        WebkitTextSizeAdjust: '100%',
+        fontSize: S.SCALE_BASE,
+        fontFamily: S.TYPOGRAPHY_TEXT_FONT,
+        color: S.COLOR_TEXT,
         height: '100%',
         position: 'relative',
-        backgroundColor: C.BACKGROUND_COLOR,
+        backgroundColor: S.COLOR_BACKGROUND,
         margin: 0,
         padding: 0
     },
     body: {
         height: '100%',
         position: 'relative',
-        backgroundColor: C.BACKGROUND_COLOR,
+        backgroundColor: S.COLOR_BACKGROUND,
         margin: 0,
         padding: 0,
-        ...Typography.paragraph
+        ...paragraph
     },
-
     // TYPOGRAPHY ==============================================================
     p: {
-        ...Typography.paragraph,
         marginBottom: calcSpace(2),
         marginTop: 0,
         marginLeft: 0,
@@ -57,14 +56,14 @@ export const globalStyles = {
     },
     cite: {
         fontStyle: 'normal',
-        ...Typography.caption
+        ...caption
     },
     dl: {
         marginBlockStart: calcSpace(2),
         marginBlockEnd: calcSpace(2),
         marginInlineStart: 0,
         marginInlineEnd: 0,
-        ...Typography.paragraph
+        ...paragraph
     },
     dt: {
         marginBottom: calcSpace(1),
@@ -79,8 +78,8 @@ export const globalStyles = {
         margin: 0,
         height: 0,
         border: 'none',
-        borderTop: C.DEFAULT_BORDER,
-        marginBottom: C.LINE_WIDTH
+        borderTop: S.LINE_DEFAULT_BORDER,
+        marginBottom: S.LINE_WIDTH
     },
     ['ul, ol']: {
         marginBlockStart: calcSpace(2),
@@ -94,9 +93,8 @@ export const globalStyles = {
     },
     ['strong, em']: {
         fontStyle: 'normal',
-        ...Typography.emphasis
+        ...emphasis
     },
-
     // MEDIA ===================================================================
     ['img, video']: {
         width: '100%'
@@ -108,45 +106,41 @@ export const globalStyles = {
         marginInlineEnd: 0
     },
     figcaption: {
-        ...Typography.caption,
+        ...caption,
         fontStyle: 'normal',
         marginBottom: calcSpace(2),
         marginTop: calcSpace(2),
         marginLeft: 0,
         marginRight: 0
     },
-
     // INTERACTIVE =============================================================
     a: {
-        ...LinkStyles.base,
-        ...LinkStyles.themes.primary.base
+        ...link,
     },
     button: {
-        ...ButtonStyles.base
+        ...button,
     },
-
     // TABLE ===================================================================
     table: {
         width: '100%',
         tableLayout: 'fixed',
         borderCollapse: 'collapse',
-        border: C.DEFAULT_BORDER
+        border: S.LINE_DEFAULT_BORDER
     },
     caption: {
-        ...Typography.caption,
+        ...caption,
         marginBottom: calcSpace(2)
     },
     tr: {
         height: calcSpace(5)
     },
     'th, label': {
-        ...Typography.label
+        ...label
     },
     'th, td': {
-        border: C.DEFAULT_BORDER,
+        border: S.LINE_DEFAULT_BORDER,
         padding: `0 ${calcSpace(2)}`
     },
-
     // FORM ====================================================================
     'input, textarea, select': {
         display: 'block',
@@ -155,19 +149,19 @@ export const globalStyles = {
         width: '100%',
         minHeight: calcSpace(5),
         backgroundColor: 'transparent',
-        border: C.DEFAULT_BORDER,
-        borderRadius: C.BORDER_RADIUS,
-        fontWeight: C.FONT_WEIGHT_REGULAR,
-        fontFamily: C.TEXT_FONT,
+        border: S.LINE_DEFAULT_BORDER,
+        borderRadius: S.LINE_BORDER_RADIUS,
+        fontWeight: S.TYPOGRAPHY_FONT_WEIGHT_REGULAR,
+        fontFamily: S.TYPOGRAPHY_TEXT_FONT,
         ...getFontScale(1),
-        color: C.TEXT_COLOR,
+        color: S.COLOR_TEXT,
         caretColor: 'currentColor',
-        transition: C.DEFAULT_TRANSITION,
+        transition: S.MOTION_DEFAULT_TRANSITION,
         '&:hover': {
-            borderColor: C.UI_COLORS.action
+            borderColor: S.COLOR_UI.ACTION
         },
         '&:focus': {
-            borderColor: C.UI_COLORS.action,
+            borderColor: S.COLOR_UI.ACTION,
             outline: 'none'
         },
         '&:disabled': {
@@ -216,15 +210,15 @@ export const globalStyles = {
         paddingBlockEnd: calcSpace(1),
         paddingInlineStart: calcSpace(2),
         paddingInlineEnd: calcSpace(2),
-        border: C.DEFAULT_BORDER
+        border: S.LINE_DEFAULT_BORDER
     },
     legend: {
         padding: `0 ${calcSpace(1)}`,
         fontStyle: 'normal',
-        ...Typography.emphasis
+        ...emphasis
     }
-}
+})
 
-const GlobalStyles = () => <Global styles={globalStyles} />
+const GlobalStyles = () => <Global styles={GLOBAL_STYLES} />
 
 export default GlobalStyles

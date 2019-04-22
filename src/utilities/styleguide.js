@@ -1,22 +1,24 @@
 import React from 'react'
-import styled from '@emotion/styled'
-import PropTypes from 'prop-types'
-import C from 'Styles/Constants'
-import Typography from 'Styles/Typography'
-import { withSpacing } from 'Utilities/spacing'
 import { calcGrey } from 'Utilities/colors'
-import { calcSpace } from 'Styles/Layout'
+import { withSpacing } from 'Utilities/spacing'
+import PropTypes from 'prop-types'
+import ReactMarkdown from 'react-markdown'
+import S from 'Symbols'
+import styled from '@emotion/styled'
+import text from 'Blocks/text'
+
+const { calcSpace } = S
 
 class Styleguide extends React.Component {
-    static Title = styled.h1(Typography.title, {
+    static Title = styled.h1(text.title, {
         borderBottom: `0.1rem solid ${calcGrey(92)}`,
         paddingBottom: calcSpace(1),
         margin: `${calcSpace(4)} 0`,
-        fontWeight: C.FONT_WEIGHT_BOLD
+        fontWeight: S.TYPOGRAPHY_FONT_WEIGHT_BOLD
     })
 
     static Description = styled.p({
-        color: C.GREY_COLORS.medium
+        color: S.COLOR_GREYS.MEDIUM
     })
 
     static Main = styled.div({
@@ -39,13 +41,47 @@ class Styleguide extends React.Component {
 
     static DefinitionTerm = styled.dt({})
 
-    static DefinitionDescription = styled.dd(Typography.caption, {
-        color: C.GREY_COLORS.medium
+    static DefinitionDescription = styled.dd(text.caption, {
+        color: S.COLOR_GREYS.MEDIUM
     })
     static Caption = withSpacing(
-        styled.p(Typography.caption, {
-            color: C.GREY_COLORS.medium
+        styled.p(text.caption, {
+            color: S.COLOR_GREYS.MEDIUM
         })
+    )
+
+    static Swatch = styled.div(
+        {
+            height: '20rem'
+        },
+        props => ({
+            backgroundColor: props.color
+        })
+    )
+
+    static Swatches = ({ scheme }) => {
+        return Object.keys(scheme).map(color => (
+            <article key={color}>
+                <Styleguide.Swatch color={scheme[color]} />
+                <Styleguide.Description>
+                    {color}
+                    <br />
+                    {scheme[color]}
+                </Styleguide.Description>
+            </article>
+        ))
+    }
+
+    static Font = styled(({ className, fontFamily }) => (
+        <p className={className}>{fontFamily}</p>
+    ))(({ fontFamily, fontWeight }) => ({
+        fontFamily,
+        fontWeight,
+        margin: `0 0 ${S.calcSpace(2)} 0`
+    }))
+
+    static Markdown = (source) => (
+        <ReactMarkdown source={source} />
     )
 
     render() {
