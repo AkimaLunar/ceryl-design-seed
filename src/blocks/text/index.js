@@ -5,6 +5,7 @@
 import S from 'Symbols'
 
 const { getFontScale } = S
+
 export const paragraph = {
     fontFamily: S.TYPOGRAPHY_TEXT_FONT,
     ...getFontScale(1)

@@ -3,6 +3,7 @@ import { configure, addDecorator } from '@storybook/react'
 import { withA11y } from '@storybook/addon-a11y'
 import { withKnobs } from '@storybook/addon-knobs'
 import GlobalStyles from 'Global'
+import Styleguide from 'Utilities/styleguide'
 
 /**
  * @todo Import stories in a specified order
@@ -17,7 +18,7 @@ function loadStories() {
 addDecorator(story => (
     <div>
         <GlobalStyles />
-        {story()}
+        <Styleguide>{story()}</Styleguide>
     </div>
 ))
 addDecorator(withA11y)

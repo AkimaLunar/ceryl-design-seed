@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from '@emotion/styled'
+/** @jsx jsx */
+// import React from 'react'
+import { jsx } from '@emotion/core'
 import { logger } from 'Utilities/logger'
 
 export const getCssFromBoolean = (props, prop, css) => {
@@ -30,9 +31,7 @@ export const getCssFromMap = (props, prop, map, makeCSS) => {
 export const withStyles = Component => constructStyles => {
     const WithStyles = props => {
         const styles = constructStyles(props)
-        const StyledComponent = styled(Component)(styles)
-
-        return <StyledComponent {...props} />
+        return <Component css={styles} {...props} />
     }
 
     WithStyles.displayName = `withStyles(${Component.displayName ||

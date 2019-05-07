@@ -4,9 +4,12 @@ import { withSpacing } from 'Utilities/spacing'
 import { withStyles } from 'Utilities/styles'
 import { constructStyles } from './styles'
 
-const Text = ({ element, children, className }) => {
-    const Tag = typeof element === 'string' ? element : 'p'
-    return <Tag className={className}>{children}</Tag>
+const Text = ({ element: Element, children, className }) => {
+    return <Element className={className}>{children}</Element>
+}
+
+Text.defaultProps = {
+    element: 'p'
 }
 
 Text.propTypes = {

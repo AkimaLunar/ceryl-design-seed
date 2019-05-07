@@ -83,18 +83,27 @@ export const makeOutlineModifier = color => ({
     }
 })
 
-/**
- * @todo: Reimplement constructThemes()
- */
-// export const colorThemes = constructThemes([
-//     {
-//         modifier: 'solid',
-//         makeStyle: makeSolidModifier,
-//         schemes: [S.THEME_COLORS, S.UI_COLORS]
-//     },
-//     {
-//         modifier: 'outline',
-//         makeStyle: makeOutlineModifier,
-//         schemes: [S.THEME_COLORS, S.UI_COLORS]
-//     }
-// ])
+export const card = {
+    position: 'relative',
+    backgroundColor: S.COLOR_GREYS.WHITE,
+    height: calcSpace(28),
+    width: calcSpace(20),
+    transition: `transform ${S.MOTION_BASE_DURATION} ${S.MOTION_BASE_TIMING}`,
+    '&::before': {
+        content: '" "',
+        position: 'absolute',
+        zIndex: -1,
+        width: '100%',
+        height: '100%',
+        boxShadow: S.PLANE_SHADOW_4,
+        borderRadius: S.LINE_BORDER_RADIUS,
+        opacity: 0,
+        transition: `opacity ${S.MOTION_BASE_DURATION} ${S.MOTION_BASE_TIMING}`
+    },
+    '&:hover': {
+        transform: 'scale(1.025, 1.025)',
+        '&::before': {
+            opacity: 0.5
+        }
+    }
+}

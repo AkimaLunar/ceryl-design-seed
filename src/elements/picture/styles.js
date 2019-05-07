@@ -1,7 +1,10 @@
-import { link } from 'Blocks/interactive'
 import { css } from '@emotion/core'
 
-const base = css(link)
+const base = css({
+    img: {
+        width: '100%'
+    }
+})
 
 export const constructStyles = () => {
     const styles = new Set([base])

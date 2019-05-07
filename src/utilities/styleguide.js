@@ -10,14 +10,19 @@ import text from 'Blocks/text'
 const { calcSpace } = S
 
 class Styleguide extends React.Component {
-    static Title = styled.h1(text.title, {
-        borderBottom: `0.1rem solid ${calcGrey(92)}`,
+    static Title = styled.h1({
+        fontFamily: S.TYPOGRAPHY_HEADING_FONT,
+        fontWeight: S.TYPOGRAPHY_FONT_WEIGHT_REGULAR,
+        borderBottom: `0.1rem solid ${S.COLOR_GREYS.GREY_80}`,
         paddingBottom: calcSpace(1),
         margin: `${calcSpace(4)} 0`,
-        fontWeight: S.TYPOGRAPHY_FONT_WEIGHT_BOLD
+        fontWeight: S.TYPOGRAPHY_FONT_WEIGHT_BOLD,
+        color: S.COLOR_GREYS.GREY_60
     })
 
     static Description = styled.p({
+        paddingTop: calcSpace(2),
+        paddingBottom: calcSpace(2),
         color: S.COLOR_GREYS.MEDIUM
     })
 
@@ -54,15 +59,15 @@ class Styleguide extends React.Component {
         {
             height: '20rem'
         },
-        props => ({
-            backgroundColor: props.color
+        ({property, value}) => ({
+            [property]: value
         })
     )
 
-    static Swatches = ({ scheme }) => {
+    static Swatches = ({ property, scheme }) => {
         return Object.keys(scheme).map(color => (
             <article key={color}>
-                <Styleguide.Swatch color={scheme[color]} />
+                <Styleguide.Swatch property={property} value={scheme[color]} />
                 <Styleguide.Description>
                     {color}
                     <br />

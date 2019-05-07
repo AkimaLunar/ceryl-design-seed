@@ -37,6 +37,11 @@ const makeOutlineModifier = color =>
         }
     })
 
+const makeSizeModifier = size =>
+    css({
+        height: size
+    })
+
 const SIZES = {
     SMALL: calcSpace(5),
     MEDIUM: calcSpace(6),
@@ -50,11 +55,6 @@ const disabled = css({
     opacity: 0.5,
     cursor: 'not-allowed'
 })
-
-const makeSizeModifier = size =>
-    css({
-        height: size
-    })
 
 export const constructStyles = props => {
     const styles = new Set([base])
