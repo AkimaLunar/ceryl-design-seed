@@ -7,7 +7,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "storybook": "start-storybook -p 9001 -c .storybook",
-        "start": "npm run storybook"
+        "start": "npm run storybook",
+        "now-build": "npx build-storybook -c .storybook -o .out"
     },
     "author": "Ria N. Carmin <akimalunar@gmail.com>",
     "license": "MIT",
