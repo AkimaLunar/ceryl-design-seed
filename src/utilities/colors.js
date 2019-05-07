@@ -8,9 +8,8 @@ export const isHSL = color => color && color.match(HSL_RANGE) // ["hsla(160,10%,
 
 /**
  * Converts a RGBa or HSLa into HEX
- *
- * @param   String  color
- * @return  String           The HEX representation
+ * @param   {string}  color
+ * @returns {string}  The HEX representation
  */
 
 export const toHEX = color => {

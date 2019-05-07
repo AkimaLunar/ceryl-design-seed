@@ -1,26 +1,27 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
+import { withA11y } from '@storybook/addon-a11y'
 import { withKnobs } from '@storybook/addon-knobs'
 import GlobalStyles from 'Global'
+import Styleguide from 'Utilities/styleguide'
 
-// TODO: Remove text
-// require.context(directory, useSubdirectories = false, regExp = /^\.\//);
-// Allows you to pass in a directory to search, a flag indicating whether
-// subdirectories should be searched too, and a regular expression to match
-// files against.
+/**
+ * @todo Import stories in a specified order
+ * @body The correct order should be: symbols, blocks, global, elements,
+ * components, (optional) constructs, (optional), views
+ */
 const req = require.context('../src', true, /.story.js$/)
 
-// TODO: Remove text
-// keys() is a function that returns an array of all possible requests that the
-// context module can handle
 function loadStories() {
     req.keys().forEach(filename => req(filename))
 }
 addDecorator(story => (
     <div>
         <GlobalStyles />
-        {story()}
+        <Styleguide>{story()}</Styleguide>
     </div>
 ))
+addDecorator(withA11y)
 addDecorator(withKnobs)
+
 configure(loadStories, module)
