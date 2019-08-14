@@ -5,8 +5,38 @@
     "main": "index.js",
     "repository": "https://github.com/AkimaLunar/ceryl-design-seed",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "start": "npm run storybook",
+        "now-build": "npx build-storybook -c .storybook -o .out"
     },
     "author": "Ria N. Carmin <akimalunar@gmail.com>",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@emotion/babel-preset-css-prop": "^10.0.9",
+        "@emotion/core": "^10.0.10",
+        "@emotion/styled": "^10.0.10",
+        "modular-scale": "^5.1.0",
+        "polished": "^3.3.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-markdown": "^4.0.8"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@storybook/addon-a11y": "^5.0.11",
+        "@storybook/addon-actions": "^5.0.11",
+        "@storybook/addon-knobs": "^5.0.11",
+        "@storybook/addon-links": "^5.0.11",
+        "@storybook/addon-notes": "^5.0.11",
+        "@storybook/client-logger": "^5.0.11",
+        "@storybook/react": "^5.0.11",
+        "babel-eslint": "^10.0.1",
+        "babel-loader": "^8.0.2",
+        "eslint": "^5.16.0",
+        "eslint-plugin-emotion": "^10.0.7",
+        "eslint-plugin-react": "^7.13.0",
+        "prop-types": "^15.7.2"
+    }
 }
