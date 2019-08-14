@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from 'react-emotion'
 import PropTypes from 'prop-types'
-import Colors from '../styleguide/Colors'
+import { withSpacing } from 'Utilities/spacing'
+import { withStyles } from 'Utilities/styles'
+import { constructStyles } from './styles'
 
 const Button = ({ children, onClick, className }) => (
     <button className={className} onClick={onClick}>
@@ -10,13 +11,9 @@ const Button = ({ children, onClick, className }) => (
 )
 
 Button.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node
-    ]),
+    children: PropTypes.node,
     className: PropTypes.string,
     onClick: PropTypes.func
 }
-export default styled(Button)({
-    color: Colors.ui.default
-})
+
+export default withSpacing(withStyles(Button)(constructStyles))

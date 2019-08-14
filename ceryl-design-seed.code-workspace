@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.formatOnSave": false,
+        "todohighlight.keywords": [
+            {
+                "text": "@todo",
+                "color": "#A37419",
+                "backgroundColor": "#FFC123",
+                "isWholeLine": false
+            },
+            {
+                "text": "TODO:",
+                "color": "#A37419",
+                "backgroundColor": "#FFCF23",
+                "isWholeLine": true
+            }
+        ]
+    }
+}
